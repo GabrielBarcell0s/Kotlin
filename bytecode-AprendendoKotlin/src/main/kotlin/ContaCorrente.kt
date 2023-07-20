@@ -7,6 +7,9 @@ class ContaCorrente(
 ) {
     override fun Sacar(valor: Double) {
         val valorComTaxa = valor + 0.1
-        super.Sacar(valorComTaxa)
+        if(this.Saldo >= valorComTaxa){
+            this.Saldo -= valorComTaxa
+        }
+
     }
 }

@@ -1,19 +1,13 @@
 abstract class Conta(val titular: String, val numero: Int) {
     var Saldo = 0.0
-        private set
+        protected set
 
 
     fun Depositar(valor: Double) {
         Saldo += valor
     }
 
-    open fun Sacar(valor: Double) {
-        if (Saldo > valor) {
-            Saldo -= valor
-        } else {
-            print("saldo Insuficiente")
-        }
-    }
+    abstract fun Sacar(valor: Double)
 
     fun Transferencia(valor: Double, destino: Conta) {
         if (Saldo > valor) {

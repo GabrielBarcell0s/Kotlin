@@ -2,17 +2,15 @@ class Gerente(
     nome: String,
     cpf: String,
     salario: Double,
-    val senha: Int
-) : Funcionario(
+    senha: Int
+) : FuncionarioAdmin(
     nome = nome,
     cpf = cpf,
-    salario = salario
-) {
-
+    salario = salario,
+    senha = senha
+), IAutenticavel {
     override val bonificacao: Double get() = (salario * .1) + salario
-
-
-    fun autentica(senha: Int): Boolean {
+    override fun autentica(senha: Int): Boolean {
         return this.senha == senha
     }
 }
